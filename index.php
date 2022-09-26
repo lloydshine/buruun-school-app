@@ -19,7 +19,7 @@
     </style>
   </head>
 </head>
-<body">
+<body>
     <div class="container my-5">
         <h1>Student Database</h1>
         <div class="col-md-7">
@@ -69,22 +69,29 @@
             if(!$result) {
                 die("Invalid Query: " . $connection->error);
             }
-
-            while($row = $result->fetch_assoc()) {
-                echo "<tr>
-                <td>" . $row["id"] . "</td>
-                <td>" . $row["first_name"] . "</td>
-                <td>" . $row["middle_initial"] . ".</td>
-                <td>" . $row["last_name"] . "</td>
-                <td>" . $row["LRN"] . "</td>
-                <td>" . $row["grade_lvl"] . "</td>
-                <td>" . $row["age"] . "</td>
-                <td>" . $row["address"] . "</td>
-                <td>
-                    <a class='btn btn-primary btn-sm' href='edit.php?id=$row[id]'>Update</a>
-                    <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]'>Delete</a>
-                </td>
-            </tr>";
+            if(mysqli_num_rows($result) > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                    <td>" . $row["id"] . "</td>
+                    <td>" . $row["first_name"] . "</td>
+                    <td>" . $row["middle_initial"] . ".</td>
+                    <td>" . $row["last_name"] . "</td>
+                    <td>" . $row["LRN"] . "</td>
+                    <td>" . $row["grade_lvl"] . "</td>
+                    <td>" . $row["age"] . "</td>
+                    <td>" . $row["address"] . "</td>
+                    <td>
+                        <a class='btn btn-primary btn-sm' href='edit.php?id=$row[id]'>Update</a>
+                        <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]'>Delete</a>
+                    </td>
+                </tr>";
+                }
+            } else {
+                ?>
+                    <tr>
+                        <td colspan="9">No Records Found</td>
+                    </tr>
+                <?php
             }
             ?>
         </tbody>

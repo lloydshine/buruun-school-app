@@ -110,7 +110,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container my-5">
         <h1>Edit Student</h1>
 
         <?php
