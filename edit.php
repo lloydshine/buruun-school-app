@@ -101,6 +101,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     <title>Add Student</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color:#131516;
+            color: white;
+        }
+         * {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="container">

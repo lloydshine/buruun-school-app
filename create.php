@@ -80,6 +80,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Add Student</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #131516;
+            color: white;
+        }
+         * {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -100,37 +109,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="firstname" value="<?php echo $firstname; ?>">
+                    <input type="text" placeholder="First Name" class="form-control" name="firstname" value="<?php echo $firstname; ?>">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Middle Initial</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="middle" value="<?php echo $middle; ?>">
+                    <input type="text" placeholder="Middle Initial" class="form-control" name="middle" value="<?php echo $middle; ?>">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Last Name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="lastname" value="<?php echo $lastname; ?>">
+                    <input type="text" placeholder="Last Name" class="form-control" name="lastname" value="<?php echo $lastname; ?>">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">LRN</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="lrn" value="<?php echo $lrn; ?>">
+                    <input type="text" placeholder="Student LRN" class="form-control" name="lrn" value="<?php echo $lrn; ?>">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Age</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="age" value="<?php echo $age; ?>">
+                    <input type="text" placeholder="Age" class="form-control" name="age" value="<?php echo $age; ?>">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Address</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="address" value="<?php echo $address; ?>">
+                    <input type="text" placeholder="Address" class="form-control" name="address" value="<?php echo $address; ?>">
                 </div>
             </div>
 

@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Oten</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #131516;
+            color: white;
+        }
+         * {
+            color: white;
+        }
+    </style>
   </head>
 </head>
 <body">
@@ -14,7 +23,7 @@
         <div class="col-md-7">
             <form action="" method="GET">
                 <div class="input-group mb-3">
-                    <input type="text" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
+                    <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </form>
