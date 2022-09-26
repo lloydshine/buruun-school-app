@@ -10,6 +10,7 @@ $firstname = "";
 $middle = "";
 $lastname = "";
 $lrn = "";
+$gradelvl = "";
 $age = "";
 $address = ""; 
 $errorMessage = "";
@@ -19,10 +20,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $middle = $_POST["middle"];
     $lastname = $_POST["lastname"];
     $lrn = $_POST["lrn"];
+    $gradelvl = $_POST["gradelvl"];
     $age = $_POST["age"];
     $address = $_POST["address"];
     do {
-        if(empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($age)||empty($address)) {
+        if(empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($gradelvl)||empty($age)||empty($address)) {
             $errorMessage = "All the fields are required!";
             break;
         }
@@ -38,17 +40,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errorMessage = "Invalid LRN!";
             break;
         }
-        if(strlen($age) > 2) {
-            $errorMessage = "Invalid Age";
-            break;
-        }
         if(!is_numeric($age)) {
             $errorMessage = "Invalid Age!";
             break;
         }
+        if(!is_numeric($gradelvl)) {
+            $errorMessage = "Invalid Grade Level!";
+            break;
+        }
+        if($gradelvl > 12 || $gradelvl < 1) {
+            $errorMessage = "Grade Level must be 1 - 12!";
+            break;
+        }
 
-        $sql = "INSERT INTO students(first_name,middle_initial,last_name,LRN,age,address) " .
-               "VALUES ('$firstname','$middle','$lastname','$lrn','$age','$address')";
+        $sql = "INSERT INTO students(first_name,middle_initial,last_name,LRN,grade_lvl,age,address) " .
+               "VALUES ('$firstname','$middle','$lastname','$lrn',$gradelvl,$age,'$address')";
         $result = $connection->query($sql);
 
         if(!$result) {
@@ -60,6 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $middle = "";
         $lastname = "";
         $lrn = "";
+        $gradelvl = "";
         $age = "";
         $address = ""; 
         $successMessage = "Student Added to the database!";
@@ -80,15 +87,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Add Student</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        body {
-            background-color: #131516;
-            color: white;
-        }
-         * {
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -128,6 +126,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label class="col-sm-3 col-form-label">LRN</label>
                 <div class="col-sm-6">
                     <input type="text" placeholder="Student LRN" class="form-control" name="lrn" value="<?php echo $lrn; ?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Grade Level</label>
+                <div class="col-sm-6">
+                    <input type="text" placeholder="Student Grade Level" class="form-control" name="gradelvl" value="<?php echo $gradelvl; ?>">
                 </div>
             </div>
             <div class="row mb-3">

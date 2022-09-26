@@ -7,12 +7,14 @@
     <title>School Oten</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <style>
-        body {
-            background-color: #131516;
-            color: white;
+        .my-custom-scrollbar {
+            height: 450px;
+            overflow: auto;
         }
-         * {
-            color: white;
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #fff !important;
         }
     </style>
   </head>
@@ -30,7 +32,8 @@
         </div>
         <a class="btn btn-primary" href="/school/create.php" role="button">New Student</a>
         <br>
-    <table class="table">
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-bordered table-striped mb-0">
         <thead>
             <tr>
                 <th>ID</th>
@@ -38,6 +41,7 @@
                 <th>Middle Initial</th>
                 <th>Last Name</th>
                 <th>LRN</th>
+                <th>Grade Level</th>
                 <th>Age</th>
                 <th>Address</th>
                 <th>Action</th>
@@ -58,7 +62,7 @@
             $sql = "SELECT * FROM students";
             if(isset($_GET['search'])) {
                 $filtervalues = $_GET['search'];
-                $sql = "SELECT * FROM students WHERE CONCAT(first_name,middle_initial,last_name,LRN,address) LIKE '%$filtervalues%' ";
+                $sql = "SELECT * FROM students WHERE CONCAT(first_name,middle_initial,last_name,LRN,grade_lvl,address) LIKE '%$filtervalues%' ";
             }
             $result = $connection->query($sql);
 
@@ -73,6 +77,7 @@
                 <td>" . $row["middle_initial"] . ".</td>
                 <td>" . $row["last_name"] . "</td>
                 <td>" . $row["LRN"] . "</td>
+                <td>" . $row["grade_lvl"] . "</td>
                 <td>" . $row["age"] . "</td>
                 <td>" . $row["address"] . "</td>
                 <td>
@@ -84,6 +89,7 @@
             ?>
         </tbody>
     </table>
+    </div>
     </div>
 </body>
 </html>

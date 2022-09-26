@@ -15,6 +15,7 @@ $firstname = "";
 $middle = "";
 $lastname = "";
 $lrn = "";
+$gradelvl = "";
 $age = "";
 $address = "";
 
@@ -41,6 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     $middle = $row['middle_initial'];
     $lastname = $row['last_name'];
     $lrn = $row['LRN'];
+    $gradelvl = $row['grade_lvl'];
     $age = $row['age'];
     $address = $row['address'];
 } else {
@@ -49,10 +51,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     $middle = $_POST["middle"];
     $lastname = $_POST["lastname"];
     $lrn = $_POST["lrn"];
+    $gradelvl = $_POST["gradelvl"];
     $age = $_POST["age"];
     $address = $_POST["address"];
     do {
-        if(empty($id)||empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($age)||empty($address)) {
+        if(empty($id)||empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($gradelvl)||empty($age)||empty($address)) {
             $errorMessage = "All the fields are required!";
             break;
         }
@@ -68,16 +71,20 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             $errorMessage = "Invalid LRN!";
             break;
         }
-        if(strlen($age) > 2) {
-            $errorMessage = "Invalid Age";
-            break;
-        }
         if(!is_numeric($age)) {
             $errorMessage = "Invalid Age!";
             break;
         }
+        if(!is_numeric($gradelvl)) {
+            $errorMessage = "Invalid Grade Level!";
+            break;
+        }
+        if($gradelvl > 12 || $gradelvl < 1) {
+            $errorMessage = "Grade Level must be 1 - 12!";
+            break;
+        }
         $sql = "UPDATE students " .
-               "SET first_name='$firstname',middle_initial='$middle',last_name='$lastname',LRN='$lrn',age='$age',address='$address' " .
+               "SET first_name='$firstname',middle_initial='$middle',last_name='$lastname',LRN='$lrn',grade_lvl=$gradelvl,age=$age,address='$address' " .
                "WHERE id = $id";
         $result = $connection->query($sql);
         if(!$result) {
@@ -101,15 +108,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     <title>Add Student</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        body {
-            background-color:#131516;
-            color: white;
-        }
-         * {
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -150,6 +148,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <label class="col-sm-3 col-form-label">LRN</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="lrn" value="<?php echo $lrn; ?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Grade Level</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="gradelvl" value="<?php echo $gradelvl; ?>">
                 </div>
             </div>
             <div class="row mb-3">
