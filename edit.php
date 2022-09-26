@@ -23,7 +23,7 @@ $successMessage = "";
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
     if(!isset($_GET["id"])) {
-        header("location: ./index.php");
+        header("location: index.php");
         exit;
     }
     
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     $row = $result->fetch_assoc();
 
     if(!$row) {
-        header("location: ./index.php");
+        header("location: index.php");
         exit;
     }
 
