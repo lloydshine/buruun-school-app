@@ -15,6 +15,6 @@ if(isset($_GET["id"])) {
     $sql = "DELETE FROM students WHERE id = $id";
     $result = $connection->query($sql);
 }
-header("location: /school/index.php");
+header("location: ./index.php");
 exit;
 ?>
