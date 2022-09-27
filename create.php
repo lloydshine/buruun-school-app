@@ -72,7 +72,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 <body>
     <div class="container my-5">
         <h1>New Student</h1>
-
+        <?php
+        if (!empty($errorMessage)) {
+            echo "
+            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                <strong>$errorMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div>
+            ";
+        }
+        ?>
         <form method="post">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">First Name</label>
