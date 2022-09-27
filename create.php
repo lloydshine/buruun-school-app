@@ -82,6 +82,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             ";
         }
         ?>
+        <?php
+            if (!empty($successMessage)) {
+                echo "
+                <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                    <strong>$successMessage</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                </div>
+                ";
+            }
+            ?>
         <form method="post">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">First Name</label>
@@ -125,18 +135,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <input type="text" placeholder="Address" class="form-control" name="address" value="<?php echo $address; ?>">
                 </div>
             </div>
-
-            <?php
-            if (!empty($successMessage)) {
-                echo "
-                <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                    <strong>$successMessage</strong>
-                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-                </div>
-                ";
-            }
-            ?>
-
             <div class="row mb-3">
                 <div class="offset-sm-3 col-sm-3 d-grid">
                     <button type="submit" class="btn btn-primary">Submit</button>
