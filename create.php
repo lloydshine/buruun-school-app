@@ -54,6 +54,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             break;
         }
         $successMessage = "Successfully Added Student to the Database!";
+        $id = "1";
+        $firstname = "";
+        $middle = "";
+        $lastname = "";
+        $lrn = "";
+        $gradelvl = "";
+        $age = "";
+        $address = "";
         break;
     } while(false);
 }
