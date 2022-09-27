@@ -1,23 +1,30 @@
 <?php
-$id = "OTEN";
-$firstname = "Cum";
-$middle = "Pussy";
+$id = "1";
+$firstname = "CUM";
+$middle = "OTEN";
 $lastname = "Bitch";
-$lrn = 6969"";
-$gradelvl = "Level 69";
-$age = "90";
+$lrn = "6969";
+$gradelvl = "2";
+$age = "69";
 $address = "Iligan City";
 
 $errorMessage = "";
 $successMessage = "";
-$id = $_POST['id'];
-$firstname = $_POST["firstname"];
-$middle = $_POST["middle"];
-$lastname = $_POST["lastname"];
-$lrn = $_POST["lrn"];
-$gradelvl = $_POST["gradelvl"];
-$age = $_POST["age"];
-$address = $_POST["address"];
+
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if(isset($_GET["id"])) {
+        header("location: index.php");
+        exit;
+    }
+} else {
+    $id = $_POST['id'];
+    $firstname = $_POST["firstname"];
+    $middle = $_POST["middle"];
+    $lastname = $_POST["lastname"];
+    $lrn = $_POST["lrn"];
+    $gradelvl = $_POST["gradelvl"];
+    $age = $_POST["age"];
+    $address = $_POST["address"];
     do {
         if(empty($id)||empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($gradelvl)||empty($age)||empty($address)) {
             $errorMessage = "All the fields are required!";
@@ -50,6 +57,7 @@ $address = $_POST["address"];
         $successMessage = "Successfully Edited Data";
         break;
     } while(false);
+}
 ?>
 
 
@@ -80,7 +88,6 @@ $address = $_POST["address"];
         ?>
 
         <form method="post">
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-6">
