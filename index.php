@@ -32,7 +32,7 @@
                 </div>
             </form>
         </div>
-        <a class="btn btn-primary" href="/school/create.php" role="button">New Student</a>
+        <a class="btn btn-primary" href="create.php" role="button">New Student</a>
         <br>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
@@ -83,8 +83,8 @@
                     <td>" . $row["age"] . "</td>
                     <td>" . $row["address"] . "</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='../edit.php?id=$row[id]'>Update</a>
-                        <a class='btn btn-danger btn-sm' href='../delete.php?id=$row[id]'>Delete</a>
+                        <a class='btn btn-primary btn-sm' href='edit.php?id=$row[id]'>Update</a>
+                        <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]'>Delete</a>
                     </td>
                 </tr>";
                 }
