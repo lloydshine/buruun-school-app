@@ -51,51 +51,48 @@
         </thead>
 
         <tbody>
-            <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "school";
-
-            $connection = new mysqli($servername,$username,$password,$database);
-            if($connection->connect_error) {
-                die("Connection Failed: " . $connection->connect_error);
-            }
-            $sql = "SELECT * FROM students";
-            if(isset($_GET['search'])) {
-                $filtervalues = $_GET['search'];
-                $sql = "SELECT * FROM students WHERE CONCAT(first_name,middle_initial,last_name,LRN,grade_lvl,address) LIKE '%$filtervalues%' ";
-            }
-            $result = $connection->query($sql);
-
-            if(!$result) {
-                die("Invalid Query: " . $connection->error);
-            }
-            if(mysqli_num_rows($result) > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                    <td>" . $row["id"] . "</td>
-                    <td>" . $row["first_name"] . "</td>
-                    <td>" . $row["middle_initial"] . ".</td>
-                    <td>" . $row["last_name"] . "</td>
-                    <td>" . $row["LRN"] . "</td>
-                    <td>" . $row["grade_lvl"] . "</td>
-                    <td>" . $row["age"] . "</td>
-                    <td>" . $row["address"] . "</td>
-                    <td>
-                        <a class='btn btn-primary btn-sm' href='edit.php?id=$row[id]'>Update</a>
-                        <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]'>Delete</a>
-                    </td>
-                </tr>";
-                }
-            } else {
-                ?>
-                    <tr>
-                        <td colspan="9">No Records Found</td>
-                    </tr>
-                <?php
-            }
-            ?>
+           <tr>
+             <td>1</td>
+             <td>Perez</td>
+             <td>Very</td>
+             <td>Gae</td>
+             <td>123456789012</td>
+             <td>1</td>
+             <td>12</td>
+             <td>Suarez</td>
+             <td>
+                 <a class='btn btn-primary btn-sm'>Update</a>
+                 <a class='btn btn-danger btn-sm'>Delete</a>
+             </td>
+           </tr>
+            <tr>
+             <td>2</td>
+             <td>Nathan</td>
+             <td>Very</td>
+             <td>Smol</td>
+             <td>123456789012</td>
+             <td>1</td>
+             <td>12</td>
+             <td>Iligan</td>
+             <td>
+                 <a class='btn btn-primary btn-sm'>Update</a>
+                 <a class='btn btn-danger btn-sm'>Delete</a>
+             </td>
+           </tr>
+            <tr>
+             <td>3</td>
+             <td>Dexter</td>
+             <td>Very</td>
+             <td>Large</td>
+             <td>123456789012</td>
+             <td>1</td>
+             <td>12</td>
+             <td>Saray</td>
+             <td>
+                 <a class='btn btn-primary btn-sm'>Update</a>
+                 <a class='btn btn-danger btn-sm'>Delete</a>
+             </td>
+           </tr>
         </tbody>
     </table>
     </div>
