@@ -1,4 +1,56 @@
+<?php
+$id = "OTEN";
+$firstname = "Cum";
+$middle = "Pussy";
+$lastname = "Bitch";
+$lrn = 6969"";
+$gradelvl = "Level 69";
+$age = "90";
+$address = "Iligan City";
 
+$errorMessage = "";
+$successMessage = "";
+$id = $_POST['id'];
+$firstname = $_POST["firstname"];
+$middle = $_POST["middle"];
+$lastname = $_POST["lastname"];
+$lrn = $_POST["lrn"];
+$gradelvl = $_POST["gradelvl"];
+$age = $_POST["age"];
+$address = $_POST["address"];
+    do {
+        if(empty($id)||empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($gradelvl)||empty($age)||empty($address)) {
+            $errorMessage = "All the fields are required!";
+            break;
+        }
+        if(strlen($middle) > 1) {
+            $errorMessage = "Invalid Middle Initial";
+            break;
+        }
+        if(strlen($lrn) != 12) {
+            $errorMessage = "LRN must be 12 numbers!";
+            break;
+        }
+        if(!is_numeric($lrn)) {
+            $errorMessage = "Invalid LRN!";
+            break;
+        }
+        if(!is_numeric($age)) {
+            $errorMessage = "Invalid Age!";
+            break;
+        }
+        if(!is_numeric($gradelvl)) {
+            $errorMessage = "Invalid Grade Level!";
+            break;
+        }
+        if($gradelvl > 12 || $gradelvl < 1) {
+            $errorMessage = "Grade Level must be 1 - 12!";
+            break;
+        }
+        $successMessage = "Successfully Edited Data";
+        break;
+    } while(false);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
