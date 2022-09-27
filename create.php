@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             $errorMessage = "Grade Level must be 1 - 12!";
             break;
         }
-        $successMessage = "Successfully Edited Data";
+        $successMessage = "Successfully Added Student to the Database!";
         break;
     } while(false);
 }
