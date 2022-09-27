@@ -1,81 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "school";
-
-$connection = new mysqli($servername,$username,$password,$database);
-
-$firstname = "";
-$middle = "";
-$lastname = "";
-$lrn = "";
-$gradelvl = "";
-$age = "";
-$address = ""; 
-$errorMessage = "";
-$successMessage = "";
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $firstname = $_POST["firstname"];
-    $middle = $_POST["middle"];
-    $lastname = $_POST["lastname"];
-    $lrn = $_POST["lrn"];
-    $gradelvl = $_POST["gradelvl"];
-    $age = $_POST["age"];
-    $address = $_POST["address"];
-    do {
-        if(empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($gradelvl)||empty($age)||empty($address)) {
-            $errorMessage = "All the fields are required!";
-            break;
-        }
-        if(strlen($middle) > 1) {
-            $errorMessage = "Invalid Middle Initial";
-            break;
-        }
-        if(strlen($lrn) != 12) {
-            $errorMessage = "LRN must be 12 numbers!";
-            break;
-        }
-        if(!is_numeric($lrn)) {
-            $errorMessage = "Invalid LRN!";
-            break;
-        }
-        if(!is_numeric($age)) {
-            $errorMessage = "Invalid Age!";
-            break;
-        }
-        if(!is_numeric($gradelvl)) {
-            $errorMessage = "Invalid Grade Level!";
-            break;
-        }
-        if($gradelvl > 12 || $gradelvl < 1) {
-            $errorMessage = "Grade Level must be 1 - 12!";
-            break;
-        }
-
-        $sql = "INSERT INTO students(first_name,middle_initial,last_name,LRN,grade_lvl,age,address) " .
-               "VALUES ('$firstname','$middle','$lastname','$lrn',$gradelvl,$age,'$address')";
-        $result = $connection->query($sql);
-
-        if(!$result) {
-            $errorMessage = "Invalid Query: " . $connection->error;
-            break;
-        }
-
-        $firstname = "";
-        $middle = "";
-        $lastname = "";
-        $lrn = "";
-        $gradelvl = "";
-        $age = "";
-        $address = ""; 
-        $successMessage = "Student Added to the database!";
-        break;
-    } while (false);
-}
-
-
-?>
 
 
 <!DOCTYPE html>
@@ -91,17 +13,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container my-5">
         <h1>New Student</h1>
-
-        <?php
-        if (!empty($errorMessage)) {
-            echo "
-            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                <strong>$errorMessage</strong>
-                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-            </div>
-            ";
-        }
-        ?>
 
         <form method="post">
             <div class="row mb-3">
