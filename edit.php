@@ -17,7 +17,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         exit;
     }
 } else {
-    $id = $_POST['id'];
     $firstname = $_POST["firstname"];
     $middle = $_POST["middle"];
     $lastname = $_POST["lastname"];
