@@ -1,12 +1,12 @@
 <?php
 $id = "1";
-$firstname = "CUM";
-$middle = "OTEN";
-$lastname = "Bitch";
-$lrn = "6969";
-$gradelvl = "2";
-$age = "69";
-$address = "Iligan City";
+$firstname = "";
+$middle = "";
+$lastname = "";
+$lrn = "";
+$gradelvl = "";
+$age = "";
+$address = "";
 
 $errorMessage = "";
 $successMessage = "";
