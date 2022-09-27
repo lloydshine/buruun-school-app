@@ -61,7 +61,7 @@
              <td>12</td>
              <td>Suarez</td>
              <td>
-                 <a class='btn btn-primary btn-sm'>Update</a>
+                 <a class='btn btn-primary btn-sm' href='edit.php'>Update</a>
                  <a class='btn btn-danger btn-sm'>Delete</a>
              </td>
            </tr>
@@ -75,7 +75,7 @@
              <td>12</td>
              <td>Iligan</td>
              <td>
-                 <a class='btn btn-primary btn-sm'>Update</a>
+                 <a class='btn btn-primary btn-sm' href='edit.php'>Update</a>
                  <a class='btn btn-danger btn-sm'>Delete</a>
              </td>
            </tr>
@@ -89,7 +89,35 @@
              <td>12</td>
              <td>Saray</td>
              <td>
-                 <a class='btn btn-primary btn-sm'>Update</a>
+                 <a class='btn btn-primary btn-sm' href='edit.php'>Update</a>
+                 <a class='btn btn-danger btn-sm'>Delete</a>
+             </td>
+           </tr>
+            <tr>
+             <td>4</td>
+             <td>LadyMae</td>
+             <td>Very</td>
+             <td>Very Very Smol Midget</td>
+             <td>123456789012</td>
+             <td>1</td>
+             <td>12</td>
+             <td>Mars Alien</td>
+             <td>
+                 <a class='btn btn-primary btn-sm' href='edit.php'>Update</a>
+                 <a class='btn btn-danger btn-sm'>Delete</a>
+             </td>
+           </tr>
+            <tr>
+             <td>5</td>
+             <td>Andro</td>
+             <td>Very</td>
+             <td>Oten</td>
+             <td>123456789012</td>
+             <td>1</td>
+             <td>2</td>
+             <td>Cum</td>
+             <td>
+                 <a class='btn btn-primary btn-sm' href='edit.php'>Update</a>
                  <a class='btn btn-danger btn-sm'>Delete</a>
              </td>
            </tr>
