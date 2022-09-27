@@ -1,59 +1,23 @@
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "school";
-
-$connection = new mysqli($servername,$username,$password,$database);
-if($connection->connect_error) {
-    die("Connection Failed: " . $connection->connect_error);
-}
-
-$id = "";
-$firstname = "";
-$middle = "";
-$lastname = "";
-$lrn = "";
-$gradelvl = "";
-$age = "";
-$address = "";
+$id = "OTEN";
+$firstname = "Cum";
+$middle = "Pussy";
+$lastname = "Bitch";
+$lrn = 6969"";
+$gradelvl = "Level 69";
+$age = "90";
+$address = "Iligan City";
 
 $errorMessage = "";
 $successMessage = "";
-
-if($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if(!isset($_GET["id"])) {
-        header("location: index.php");
-        exit;
-    }
-    
-    $id = $_GET["id"];
-    $sql = "SELECT * FROM students WHERE id = $id";
-    $result = $connection->query($sql);
-    $row = $result->fetch_assoc();
-
-    if(!$row) {
-        header("location: index.php");
-        exit;
-    }
-
-    $firstname = $row['first_name'];
-    $middle = $row['middle_initial'];
-    $lastname = $row['last_name'];
-    $lrn = $row['LRN'];
-    $gradelvl = $row['grade_lvl'];
-    $age = $row['age'];
-    $address = $row['address'];
-} else {
-    $id = $_POST['id'];
-    $firstname = $_POST["firstname"];
-    $middle = $_POST["middle"];
-    $lastname = $_POST["lastname"];
-    $lrn = $_POST["lrn"];
-    $gradelvl = $_POST["gradelvl"];
-    $age = $_POST["age"];
-    $address = $_POST["address"];
+$id = $_POST['id'];
+$firstname = $_POST["firstname"];
+$middle = $_POST["middle"];
+$lastname = $_POST["lastname"];
+$lrn = $_POST["lrn"];
+$gradelvl = $_POST["gradelvl"];
+$age = $_POST["age"];
+$address = $_POST["address"];
     do {
         if(empty($id)||empty($firstname)||empty($middle)||empty($lastname)||empty($lrn)||empty($gradelvl)||empty($age)||empty($address)) {
             $errorMessage = "All the fields are required!";
@@ -83,18 +47,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             $errorMessage = "Grade Level must be 1 - 12!";
             break;
         }
-        $sql = "UPDATE students " .
-               "SET first_name='$firstname',middle_initial='$middle',last_name='$lastname',LRN='$lrn',grade_lvl=$gradelvl,age=$age,address='$address' " .
-               "WHERE id = $id";
-        $result = $connection->query($sql);
-        if(!$result) {
-            $errorMessage = "Invalid Query: " . $connection->error;
-            break;
-        }
         $successMessage = "Successfully Edited Data";
         break;
     } while(false);
-}
 ?>
 
 
