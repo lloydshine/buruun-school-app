@@ -1,9 +1,9 @@
 <?php
 $id = "1";
 $firstname = "CUM";
-$middle = "OTEN";
+$middle = "O";
 $lastname = "Bitch";
-$lrn = "6969";
+$lrn = "696969696969";
 $gradelvl = "2";
 $age = "69";
 $address = "Iligan City";
