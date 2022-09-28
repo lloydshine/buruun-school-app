@@ -7,6 +7,13 @@
     <title>School Oten</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <style>
+        #main {
+            display: flex;
+            align-items: center; /* Vertical align the elements to the center */
+        }
+        h1 {
+            margin-right: 20px;
+        }
         .my-custom-scrollbar {
             height: 400px;
             overflow: auto;
@@ -28,8 +35,9 @@
 </head>
 <body>
     <div class="container my-5">
-        <a class="btn btn-outline-danger" href="index.php" role="button">Logout</a>
-        <h1>Student Database</h1>
+        <div id="main">
+        <h1>Student Database</h1><a class="btn btn-outline-danger" href="index.php" role="button">Logout</a>
+        </div>
         <div class="col-md-7">
             <form action="" method="GET">
                 <div class="input-group mb-3">
