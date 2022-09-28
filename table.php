@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <style>
         .my-custom-scrollbar {
-            height: 450px;
+            height: 400px;
             overflow: auto;
         }
         .table,
@@ -28,6 +28,7 @@
 </head>
 <body>
     <div class="container my-5">
+        <a class="btn btn-outline-danger" href="index.php" role="button">Logout</a>
         <h1>Student Database</h1>
         <div class="col-md-7">
             <form action="" method="GET">
