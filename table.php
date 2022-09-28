@@ -10,10 +10,10 @@
         #main {
             display: flex;
             align-items: center; /* Vertical align the elements to the center */
+            margin-bottom: 20px;
         }
         h1 {
             margin-right: 20px;
-            margin-bottom: 20px;
         }
         .my-custom-scrollbar {
             height: 400px;
