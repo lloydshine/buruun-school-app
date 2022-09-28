@@ -42,7 +42,7 @@ form.onsubmit = (e)=>{
   //if eField and pField doesn't contains error class that mean user filled details properly
   if(!eField.classList.contains("error") && !pField.classList.contains("error")){
     if(eInput.value == "admin" && pInput.value == "admin") {
-        window.location.href = 'index.php';
+        window.location.href = 'table.php';
     } else {
         pField.classList.remove("valid");
         eField.classList.remove("valid");
